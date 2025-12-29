@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/admin/api/surveys")
+@RequestMapping({"/admin/api/surveys", "/backend/admin/api/surveys"})
 @RequiredArgsConstructor
 public class SurveyAdminApiController {
 
