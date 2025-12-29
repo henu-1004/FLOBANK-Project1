@@ -2843,6 +2843,228 @@ input[type="file"] {
     margin-top: 20px;
 }
 
+/* ==============================
+   설문 등록 관리자 화면
+============================== */
+.survey-admin {
+    background: #fff;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.survey-admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.survey-admin-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #3c4f76;
+}
+
+.survey-btn-primary {
+    background: #3c4f76;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.survey-btn-secondary {
+    background: #b7c9e2;
+    color: #23314f;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.survey-btn-text {
+    background: none;
+    border: none;
+    color: #3c4f76;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.survey-list {
+    border-top: 1px solid #e6eaf1;
+    padding-top: 16px;
+}
+
+.survey-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.survey-table th,
+.survey-table td {
+    border-bottom: 1px solid #e6eaf1;
+    padding: 10px 8px;
+    font-size: 13px;
+    text-align: left;
+}
+
+.survey-table th {
+    color: #3c4f76;
+    font-weight: 600;
+    background: #f7f3ee;
+}
+
+.survey-empty {
+    text-align: center;
+    color: #8a96ab;
+}
+
+.survey-modal {
+    display: none;
+    position: fixed;
+    z-index: 2100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(60, 79, 118, 0.35);
+}
+
+.survey-modal-content {
+    width: 720px;
+    max-width: 95%;
+    margin: 80px auto;
+    background: #fafafa;
+    border-radius: 16px;
+    padding: 24px 28px;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.survey-modal-content h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #3c4f76;
+    margin-bottom: 16px;
+}
+
+.survey-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    border: none;
+    background: none;
+    font-size: 24px;
+    color: #3c4f76;
+    cursor: pointer;
+}
+
+.survey-modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.survey-modal-body label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #23314f;
+}
+
+.survey-modal-body input,
+.survey-modal-body textarea,
+.survey-modal-body select {
+    width: 100%;
+    border: 1px solid #c9d4e4;
+    border-radius: 10px;
+    padding: 8px 10px;
+    font-size: 13px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.survey-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #23314f;
+}
+
+.survey-question-section {
+    background: #f7f3ee;
+    padding: 14px;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+.survey-question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.survey-question {
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px;
+    border: 1px solid #e3e8f2;
+    margin-bottom: 12px;
+}
+
+.survey-question-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.survey-question-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.survey-question-required {
+    display: flex;
+    align-items: flex-end;
+}
+
+.survey-option-section {
+    background: #fafafa;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px dashed #b7c9e2;
+}
+
+.survey-option-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.survey-option {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)) auto;
+    gap: 8px;
+    margin-bottom: 8px;
+    align-items: center;
+}
+
+.survey-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 16px;
+}
+
 
 /*=======================================*/
 /*=======================================*/

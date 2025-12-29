@@ -23,14 +23,18 @@
 
     <main class="main-panel">
 
-        <!-- 헤더 -->
-        <header th:replace="~{admin/admin_inc/admin_header :: admin_header}"></header>
+    <!-- 헤더 -->
+    <header th:replace="~{admin/admin_inc/admin_header :: admin_header}"></header>
 
-        <!-- 페이지 본문(content fragment) -->
-        <div class="admin-content" th:replace="${content}"></div>
+    <!-- 페이지 본문(content fragment) -->
+    <div class="admin-content" th:replace="${content}"></div>
 
-        <!-- 개별 페이지 스크립트(script fragment) -->
-        <th:block th:if="${scripts != null}" th:replace="${scripts}"></th:block>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"></script>
+
+    <!-- 개별 페이지 스크립트(script fragment) -->
+    <th:block th:if="${scripts != null}" th:replace="${scripts}"></th:block>
 
     </main>
 </div>
