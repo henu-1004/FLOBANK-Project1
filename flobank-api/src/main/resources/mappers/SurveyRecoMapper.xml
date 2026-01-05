@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.api.flobankapi.mapper.SurveyRecoMapper">
+
+    <select id="findLatestRespId" resultType="long">
+        SELECT RESP_ID
+        FROM (
+            SELECT RESP_ID
+            FROM TB_SURVEY_RESP_HDR
+            WHERE CUST_CODE = #{custCode}
+              AND SURVEY_ID = #{surveyId}
+            ORDER BY RESP_ID DESC
+        )
+        WHERE ROWNUM = 1
+    </select>
+
+    <select id="findResponsesByRespId" resultType="kr.co.api.flobankapi.dto.SurveyResponseDTO">
+        SELECT
+            d.Q_ID AS qId,
+            q.Q_KEY AS qKey,
+            d.OPT_ID AS optId,
+            o.OPT_VALUE AS optValue,
+            o.OPT_CODE AS optCode,
+            d.ANSWER_TEXT AS answerText
+        FROM TB_SURVEY_RESP_DTL d
+        JOIN TB_SURVEY_Q q
+          ON d.Q_ID = q.Q_ID
+        LEFT JOIN TB_SURVEY_OPT o
+          ON d.OPT_ID = o.OPT_ID
+        WHERE d.RESP_ID = #{respId}
+    </select>
+
+    <select id="findRecommendableProducts" resultType="kr.co.api.flobankapi.dto.RecommendationProductCandidateDTO">
+        SELECT
+            DPST_ID AS productId,
+            DPST_NAME AS productName,
+            DPST_INFO AS productInfo,
+            DPST_DESCRIPT AS productDescription,
+            DPST_CURRENCY AS productCurrency,
+            DPST_TYPE AS dpstType,
+            DPST_RATE_TYPE AS dpstRateType,
+            DPST_ADD_PAY_YN AS dpstAddPayYn,
+            DPST_PART_WDRW_YN AS dpstPartWdrwYn
+        FROM TB_DPST_PROD_INFO
+        WHERE DPST_STATUS IN (1, 2, 3)
+    </select>
+
+    <delete id="deleteRecoTop3">
+        DELETE FROM TB_CUST_RECO_TOP3
+        WHERE CUST_CODE = #{custCode}
+          AND SURVEY_ID = #{surveyId}
+    </delete>
+
+    <insert id="insertRecoTop3">
+        INSERT INTO TB_CUST_RECO_TOP3 (
+            CUST_CODE,
+            SURVEY_ID,
+            RANK_NO,
+            PRODUCT_ID
+        )
+        <foreach collection="list" item="item" separator="UNION ALL">
+            SELECT
+                #{item.custCode},
+                #{item.surveyId},
+                #{item.rankNo},
+                #{item.productId}
+            FROM dual
+        </foreach>
+    </insert>
+
+    <select id="findRecoTop3" resultType="kr.co.api.flobankapi.dto.RecommendationProductDTO">
+        SELECT
+            r.RECO_ID AS recoId,
+            r.RANK_NO AS rankNo,
+            r.PRODUCT_ID AS productId,
+            p.DPST_NAME AS productName,
+            p.DPST_INFO AS productInfo,
+            p.DPST_DESCRIPT AS productDescription,
+            p.DPST_CURRENCY AS productCurrency
+        FROM TB_CUST_RECO_TOP3 r
+        JOIN TB_DPST_PROD_INFO p
+          ON r.PRODUCT_ID = p.DPST_ID
+        WHERE r.CUST_CODE = #{custCode}
+          AND r.SURVEY_ID = #{surveyId}
+        ORDER BY r.RANK_NO ASC
+    </select>
+
+</mapper>
