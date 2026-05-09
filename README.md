@@ -5,6 +5,8 @@
 ### 금융권 채널계·계정계 구조를 구현한 AI 기반 핀테크 웹 애플리케이션
 
 **Spring Boot · TCP/IP Socket · Oracle · Redis · Elasticsearch · OpenAI · Pinecone**
+부산은행 × 그린컴퓨터아카데미 산학 협력 은행 앱 개발 프로젝트
+🏆 최우수상 수상 프로젝트
 
 <br />
 
