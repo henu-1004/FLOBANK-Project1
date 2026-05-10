@@ -95,13 +95,13 @@
 ### 실행 화면 1
 
 <p align="center">
-  <img src="images/ex1.png" alt="FLOBANK 실행 화면 1" width="550">
+  <img src="images/ex1.png" alt="FLOBANK 실행 화면 1" width="350">
 </p>
 
 ### 실행 화면 2
 
 <p align="center">
-  <img src="images/ex2.png" alt="FLOBANK 실행 화면 2" width="550">
+  <img src="images/ex2.png" alt="FLOBANK 실행 화면 2" width="350">
 </p>
 
 ---
