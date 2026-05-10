@@ -92,32 +92,25 @@
 
 ## 🖼️ 실행 화면
 
-프로젝트 실행 화면은 추후 `images` 폴더에 업로드한 파일을 기준으로 README에 표시됩니다.
+### 실행 화면 1
 
-| 메인/사용자 화면 | AI·금융 서비스 화면 |
-| :---: | :---: |
-| ![FLOBANK 실행 화면 1](images/ex1.png) | ![FLOBANK 실행 화면 2](images/ex2.png) |
-| `images/ex1.png` | `images/ex2.png` |
+<p align="center">
+  <img src="images/ex1.png" alt="FLOBANK 실행 화면 1" width="550">
+</p>
 
-> 이미지를 추가할 때는 레포지토리 루트 기준 `images/ex1.png`, `images/ex2.png` 경로로 업로드하면 위 영역에 자동으로 표시됩니다.
+### 실행 화면 2
+
+<p align="center">
+  <img src="images/ex2.png" alt="FLOBANK 실행 화면 2" width="550">
+</p>
 
 ---
 
 ## 🧱 아키텍처
 
-```mermaid
-flowchart LR
-    User[사용자 브라우저] --> API[flobank-api\nChannel/API Server]
-    API <-->|TCP/IP Socket| AP[flobank-ap\nCore Banking Server]
-    API --> Redis[(Redis)]
-    API --> ES[(Elasticsearch)]
-    API --> AI[flobank-ai\nAI Server]
-    AI --> OpenAI[OpenAI]
-    AI --> Vector[(Pinecone Vector DB)]
-    API --> Oracle[(Oracle DB)]
-    AP --> Oracle
-    Crawler[Python Crawler] --> Oracle
-```
+<p align="center">
+  <img src="images/아키텍쳐.png" alt="FLOBANK Architecture" width="850">
+</p>
 
 ### 서버 구성
 
